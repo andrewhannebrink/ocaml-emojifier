@@ -1,0 +1,4 @@
+(library
+ (name emojifier)
+ (public_name ocaml_emojifier)
+)
