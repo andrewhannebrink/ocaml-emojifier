@@ -1,2 +1,4 @@
 (test
- (name ocaml_emojifier))
+ (name emojifier_tests)
+ (libraries ounit2)
+)

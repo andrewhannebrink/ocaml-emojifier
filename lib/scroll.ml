@@ -6,8 +6,8 @@ module Scroll : Transform.Mode = struct
     | Transform.ScrollStep { direction = _; speed; refill_mode} -> (
         print_endline (string_of_float speed);
         let _ = match refill_mode with
-          | `Random -> print_endline "random";
-          | `Underlay -> print_endline "underlay" in 
+          | `Random -> print_endline "random"
+          | `Underlay -> failwith "unimplemented" in
         arrangement)
     | _ -> arrangement
 end
