@@ -6,6 +6,7 @@ module Transform = struct
     ScrollStep of {
       direction : float * float;
       speed : float;
+      refill_mode: [`Random | `Underlay];
     } |
     ZoomStep of {
       target : float * float;
