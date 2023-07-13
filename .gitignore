@@ -1,13 +1,4 @@
 _build
-/io/input
-/io/output
-/io/lil_imgs/a
-/io/lil_imgs/b
-/io/lil_imgs/emoji
-/io/lil_imgs/emoji_raw
-/io/lil_imgs/emoji_trim
-/io/lil_imgs/emoji_big
-/io/lil_imgs/emoji_buffered
-/io/lil_imgs/emoji_big_buffered
+/io
 .DS_Store
 */.DS_Store
