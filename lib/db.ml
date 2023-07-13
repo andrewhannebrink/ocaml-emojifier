@@ -1,5 +1,5 @@
 module Db = struct 
-  let conn = Sqlite3.db_open "cache.db"
+  let conn = Sqlite3.db_open "big_mama.db"
   let create_arrangements_table = (
     print_endline "howdy";
     Sqlite3.exec conn 
