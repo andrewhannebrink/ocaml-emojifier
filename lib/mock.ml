@@ -21,7 +21,7 @@ module Mock = struct
       depth = 80.;
     }
   ]
-  let unit_arrangement: Tile.arrangement = (
+  let unit_arrangement: Tile.arrangement =
     let lil_imgs = Mosaic.get_lil_imgs_from_dir "emoji_buffered" in
     let n = lil_imgs |> List.length |> float_of_int in 
     let vx = Imagemagickcmds.resolution |> fst |> float_of_int in
@@ -31,9 +31,6 @@ module Mock = struct
     let sx = if (px *. vy /. vx) *. px < n then
       (vy /. (px *. vy /. vx)) |> ceil else
       (vx /. px) |> ceil in
-    let sy = if (py *. vx /. vy) *. py < n then
-      (vx /. (py *. vx /. vy)) |> ceil else
-      (vy /. py) |> ceil in 
     let i = ref 0 in 
     let op_arrangement = ref [] in
     let _ = (List.init (int_of_float px) (fun x -> x))
@@ -42,28 +39,14 @@ module Mock = struct
       |> List.map (fun y -> 
         match i with 
           | _ when !i >= List.length lil_imgs -> ()
-          | _ -> 
-            (string_of_int x ^ " | " ^
-            string_of_int y ^ " | " ^
-            string_of_float sx ^ " | " ^
-            string_of_float sy)
-            |> print_endline;
-          let tile = Tile.make_tile 
-              (Some ("io/lil_imgs/emoji_buffered/" ^ (List.nth lil_imgs !i)))
-              (float_of_int x *. sx)
-              (float_of_int y *. sx)
-              sx in 
-          op_arrangement := tile :: !op_arrangement;
-          i := !i + 1;
+          | _ -> let tile = Tile.make_tile 
+            (Some ("io/lil_imgs/emoji_buffered/" ^ (List.nth lil_imgs !i)))
+            (float_of_int x *. sx)
+            (float_of_int y *. sx)
+            sx in 
+            op_arrangement := tile :: !op_arrangement;
+            i := !i + 1;
       )
     )) in
     !op_arrangement
-    (*
-    List.map (fun lil_img ->
-      print_endline lil_img;
-        Tile.make_tile (Some ("io/lil_imgs/emoji_buffered/" ^ lil_img))
-            200. 200. 64.
-      ) lil_imgs
-      *)
-  )
 end
