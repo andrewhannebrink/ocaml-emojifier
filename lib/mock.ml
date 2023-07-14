@@ -40,17 +40,21 @@ module Mock = struct
     |> List.map (fun x -> (
       List.init (int_of_float py) (fun y -> y)
       |> List.map (fun y -> 
-        (string_of_int x ^ " | " ^
-          string_of_int y ^ " | " ^
-          string_of_float sx ^ " | " ^
-          string_of_float sy)
-        |> print_endline;
-        let tile = Tile.make_tile 
-            (Some ("io/lil_imgs/emoji_buffered/" ^ (List.nth lil_imgs !i)))
-            (float_of_int x *. sx)
-            (float_of_int y *. sx)
-            sx in 
-        op_arrangement := tile :: !op_arrangement;
+        match i with 
+          | _ when !i >= List.length lil_imgs -> ()
+          | _ -> 
+            (string_of_int x ^ " | " ^
+            string_of_int y ^ " | " ^
+            string_of_float sx ^ " | " ^
+            string_of_float sy)
+            |> print_endline;
+          let tile = Tile.make_tile 
+              (Some ("io/lil_imgs/emoji_buffered/" ^ (List.nth lil_imgs !i)))
+              (float_of_int x *. sx)
+              (float_of_int y *. sx)
+              sx in 
+          op_arrangement := tile :: !op_arrangement;
+          i := !i + 1;
       )
     )) in
     !op_arrangement
