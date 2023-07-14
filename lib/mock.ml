@@ -3,6 +3,7 @@ open Mosaic
 open Imagemagickcmds
 
 module Mock = struct
+
   let sample_arrangement: Tile.arrangement = [
     {
       file_path = Some "io/lil_imgs/emoji_buffered/1f34d.png";
@@ -21,6 +22,7 @@ module Mock = struct
       depth = 80.;
     }
   ]
+
   let unit_arrangement: Tile.arrangement =
     let lil_imgs = Mosaic.get_lil_imgs_from_dir "emoji_buffered" in
     let n = lil_imgs |> List.length |> float_of_int in 
@@ -49,4 +51,5 @@ module Mock = struct
       )
     )) in
     !op_arrangement
+
 end

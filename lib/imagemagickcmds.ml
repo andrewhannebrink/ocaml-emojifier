@@ -18,7 +18,7 @@ module Imagemagickcmds = struct
       )) tile.coords
     ) arrangement |> ignore;
     cmd := (!cmd ^ " io/test/output.png");
-    print_endline (!cmd);
+    (*print_endline (!cmd);*) 
     Sys.command !cmd
   )
 end
