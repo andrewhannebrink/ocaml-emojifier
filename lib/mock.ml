@@ -24,7 +24,8 @@ module Mock = struct
     let lil_imgs = Mosaic.get_lil_imgs_from_dir "emoji_buffered" in
     List.map (fun lil_img ->
       print_endline lil_img;
-        Tile.make_tile (Some lil_img) 200. 200. 64.
+        Tile.make_tile (Some ("io/lil_imgs/emoji_buffered/" ^ lil_img))
+            200. 200. 64.
       ) lil_imgs
   )
 end

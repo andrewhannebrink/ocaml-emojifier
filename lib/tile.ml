@@ -12,6 +12,7 @@ module Tile = struct
     depth: float;
   }
   type arrangement = tile list
+
   let make_tile lil_img x y depth =
     let coords = [
       {
@@ -22,4 +23,5 @@ module Tile = struct
     let avg_color = None in
     let file_path = lil_img in
     {file_path; coords; avg_color; depth; parent_coords = None}
+
 end
