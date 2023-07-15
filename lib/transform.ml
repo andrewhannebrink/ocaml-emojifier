@@ -24,7 +24,7 @@ module Transform = struct
     val hike : Tile.arrangement -> 
       Instruct.instruction -> 
       Instruct.transition_info option ->
-      Tile.arrangement
+      (Tile.arrangement * Instruct.transition_info option)
 
   end
 end

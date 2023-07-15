@@ -7,7 +7,7 @@ module Imagemagickcmds = struct
     print_endline ("ImageMagick cmd -- " ^ ((arrangement |> List.hd).file_path |> Option.get));
     let cmd = ref ("magick -size " ^ 
         string_of_int (resolution |> fst) ^ "x" ^ 
-        string_of_int (resolution |> snd) ^ " xc:skyblue ") in 
+        string_of_int (resolution |> snd) ^ " xc:white ") in 
     List.map (fun (tile : Tile.tile) -> 
       List.map (fun (coord : Tile.coords) -> (
         cmd := (!cmd ^ " " ^ (Option.get tile.file_path) ^ " -geometry " ^ 

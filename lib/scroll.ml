@@ -1,5 +1,6 @@
 open Tile
 open Transform
+open Instruct
 
 module Scroll : Transform.Mode = struct
   let step (arrangement : Tile.arrangement) = function
@@ -12,10 +13,11 @@ module Scroll : Transform.Mode = struct
       )
     | _ -> arrangement
 
-  let hike (last_arrangement : Tile.arrangement) instruction transition_info = 
+  let hike (last_arrangement : Tile.arrangement) 
+      (instruction : Instruct.instruction) 
+      (transition_info : Instruct.transition_info option) = 
     (*TODO loop through total frames here calling step() each time, writing to db along the way *)
     let _ = (last_arrangement, instruction, transition_info) in
-    last_arrangement 
-
+    (last_arrangement, None)
       
 end

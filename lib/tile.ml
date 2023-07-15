@@ -13,6 +13,13 @@ module Tile = struct
   }
   type arrangement = tile list
 
+  type underlay = {
+    arrangement : arrangement;
+    underlay : underlay option;
+  }
+
+  let make_underlay = print_endline "TODO"
+
   let make_tile lil_img x y depth =
     let coords = [
       {
