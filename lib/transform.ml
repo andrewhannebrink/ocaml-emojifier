@@ -1,12 +1,13 @@
 open Tile
 open Mosaic
+open Instruct
 
 module Transform = struct
   type step_info = 
     ScrollStep of {
       direction : float * float;
       speed : float;
-      refill_mode: [`Random | `Underlay];
+      refill_mode: [`Random | `Underlay | `Filter];
     } |
     ZoomStep of {
       target : float * float;
@@ -20,5 +21,10 @@ module Transform = struct
 
   module type Mode = sig
     val step : Tile.arrangement -> step_info -> Tile.arrangement
+    val hike : Tile.arrangement -> 
+      Instruct.instruction -> 
+      Instruct.transition_info option ->
+      Tile.arrangement
+
   end
 end
